@@ -1,0 +1,12 @@
+# IDE
+.idea/
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Временные файлы сохранения прогресса (атомарная запись)
+.progress.*.tmp

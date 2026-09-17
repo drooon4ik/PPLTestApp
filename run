@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Запуск сервера PPLTestApp.
+# Использование:
+#   ./run           # порт 8000
+#   ./run 8080      # другой порт
+set -euo pipefail
+
+# Переходим в папку скрипта, чтобы сервер видел index.html и *.json.
+cd "$(dirname "$0")"
+
+PORT="${1:-8000}"
+
+# Определяем python.
+if command -v python3 >/dev/null 2>&1; then
+  PY=python3
+elif command -v python >/dev/null 2>&1; then
+  PY=python
+else
+  echo "Python не найден. Установите Python 3." >&2
+  exit 1
+fi
+
+exec "$PY" server.py "$PORT"
